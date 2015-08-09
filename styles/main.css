@@ -59,7 +59,7 @@ body {
 	color: rgb(233,50,117);
 }
 
-.links-container .navbar-link:active {
+.links-container .navbar-link:activet {
 	color: rgb(233,50,117);
 	background-color: #fff;
 }
@@ -68,6 +68,10 @@ body {
 	margin: 0 auto;
 	max-width: 64rem;
 }
+
+.container.narrow {
+     max-width: 56rem;
+ }
 
 .clearfix:before,
 .clearfix:after {

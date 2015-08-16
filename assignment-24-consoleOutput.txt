@@ -1,0 +1,38 @@
+document.getElementsByClassName('tab_header')[0].childNodes
+    [#text, <a class=​"edit selected" href id=​"your-assignment">​…​</a>​, #text, <span ng_class=​"{selected:​ pane.selected}​" class=​"selected">​</span>​, #text]
+var tab = document.getElementsByClassName('tab_header')[0].childNodes[1];
+
+tab.textContent = "This is a tab";
+"This is a tab"
+var tab = document.getElementsByClassName('tab_header').childNodes[1];
+
+tab.textContent = "This is a tab";
+VM8905:2 Uncaught TypeError: Cannot read property '1' of undefined
+at <anonymous>:2:67
+at Object.InjectedScript._evaluateOn (<anonymous>:905:140)
+at Object.InjectedScript._evaluateAndWrap (<anonymous>:838:34)
+at Object.InjectedScript.evaluate (<anonymous>:694:21)(anonymous function) @ VM8905:2InjectedScript._evaluateOn @ VM8560:905InjectedScript._evaluateAndWrap @ VM8560:838InjectedScript.evaluate @ VM8560:694
+var tab = document.getElementsByClassName('tab_header')[2].childNodes[1];
+
+tab.textContent = "This is a tab";
+"This is a tab"
+
+var tabHeader = document.getElementsByClassName('tab_header');
+
+for(var i=0; i < tabHeader.length; i++) {
+    tabHeader[i].style.border = "3px solid red";
+}
+"3px solid red"
+
+var tabHeader = document.getElementsByClassName('tab_header');
+
+for(var i=0; i < tabHeader.length; i++) {
+    tabHeader[i].childNodes[1].style.border = "3px solid red";
+}
+
+var tabHeader = document.getElementsByClassName('tab_header');
+
+for(var i=0; i < tabHeader.length; i++) {
+    tabHeader[i].childNodes[1].textContent = "This is a tab";
+}
+"This is a tab"

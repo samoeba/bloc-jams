@@ -7,19 +7,20 @@ var pointsArray = function() {
     }
     return newArray;
 };
-
-pointsArray().forEach(function(element) {
-    console.log(element + " has been logged.");
-});
-
-//function forEach(text, callback) {
-//    console.log(text);
-//    callback();
-//}
 //
-//function myCallback() {
-//    console.log("world!");
-//}
-//
-//forEach("Hello", myCallback);
+//pointsArray().forEach(function(element) {
+//    console.log(element + " has been logged.");
+//});
 
+function forEach(array, callback) {
+    console.log(array);
+    callback();
+}
+
+function myCallback() {
+    console.log(" has been logged.");
+}
+
+forEach(pointsArray(), myCallback);
+
+console.log(forEach);

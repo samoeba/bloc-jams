@@ -30,6 +30,25 @@ var albumMarconi = {
     ]
 };
 
+var albumDylan = {
+    name: "Highway 61 Revisited",
+    artist: "Bob Dylan",
+    label: 'Sony Music',
+    year: '1965',
+    albumArtUrl: 'assets/images/album_covers/dylan.jpg',
+    songs: [
+        { name: "Like a Rolling Stone", length: "5:32"},
+        { name: "Tombstone Blues", length: '6:53'},
+        { name: "It Takes A Lot To Laugh, It Takes A Train To Cry", length: "4:51"},
+        { name: "From A Buick 6", length: "3:45"},
+        { name: "Ballad Of A Thin Man", length: "6:06"},
+        { name: "Queen Jane Approximately", length: "5:31"},
+        { name: "Highway 61 Revisited", length: "3:30"},
+        { name: "Just Like Tom Thumb's Blues", length: "5:31"},
+        { name: "Desolation Row", length: "11:19"}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
 
     var template =
@@ -74,3 +93,45 @@ window.onload = function() {
     setCurrentAlbum(albumPicasso);
 
 };
+
+var toggleAlbums = function(album) {
+    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
+        setCurrentAlbum(album);
+    });
+};
+
+var artistName = document.getElementsByClassName("album-view-artist")[0];
+
+if (document.getElementsByClassName("album-view-artist")[0] = "Pablo Picasso") {
+    toggleAlbums(albumDylan);
+};
+
+//switch (artistName) {
+//    case "Pablo Picasso":
+//        toggleAlbums(albumDylan);
+//        break;
+//    case "Bob Dylan":
+//        toggleAlbums(albumMarconi);
+//        break;
+//    case "Guglielmo Marconi":
+//        toggleAlbums(albumPicasso);
+//        break;
+//    default:
+//        console.log("Fuck!");
+//}
+
+//if (document.getElementsByClassName("album-view-artist")[0] = "Bob Dylan") {
+//    toggleAlbums(albumPicasso);
+//};
+//
+//if (document.getElementsByClassName("album-view-artist")[0] = "Guglielmo Marconi") {
+//    toggleAlbums(albumDylan);
+//}
+//
+
+
+//    //document.getElementsByClassName('album-cover-art').addEventListener('click', function() {
+//    //    setCurrentAlbum(albumMarconi);
+//    //});
+//    //document.getElementsByClassName('album-cover-art').addEventListener('click', setCurrentAlbum(albumMarconi));
+

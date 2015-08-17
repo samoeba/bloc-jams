@@ -103,7 +103,11 @@ var toggleAlbums = function(album) {
 var artistName = document.getElementsByClassName("album-view-artist")[0];
 
 if (document.getElementsByClassName("album-view-artist")[0] = "Pablo Picasso") {
-    toggleAlbums(albumDylan);
+    toggleAlbums(albumMarconi);
+};
+
+if (document.getElementsByClassName("album-view-artist")[0] = "Bob Dylan") {
+    toggleAlbums(albumPicasso);
 };
 
 //switch (artistName) {

@@ -1,8 +1,8 @@
-var points = document.getElementsByClassName('point');
+var pointsArray = document.getElementsByClassName('point');
 
 var animatePoints = function(points) {
 
-    var pointsArray = function () {
+    var arrayMan = function () {
         var newArray = [];
         for (var i = 0; i < points.length; i++) {
             newArray.push(points[i])
@@ -10,8 +10,13 @@ var animatePoints = function(points) {
         return newArray;
     };
 
-    function myCallback(index, element) {
-        console.log("The element at index " + index + " is " + element);
+    function myCallback(index) {
+        points[index].style.opacity = 1;
+        points[index].style.transform = "scaleX(1) translateY(0)";
+        points[index].style.msTransform = "scaleX(1) translateY(0)";
+        points[index].style.WebkitTransform = "scaleX(1) translateY(0)";
+
+        //console.log("The element at index " + index + " is " + element);
     }
 
     function forEach(array, callback) {
@@ -23,16 +28,14 @@ var animatePoints = function(points) {
         // iterate over the array
         for (var i = 0; i < array.length; i++) {
             // execute the call back for every element
-            callback(i, array[i], array);
+            callback(i);
             // callback(index, element, array)
         }
     }
 
-    forEach(pointsArray(), myCallback);
+    forEach(arrayMan(), myCallback);
 
 };
-
-animatePoints();
 
 window.onload = function() {
 

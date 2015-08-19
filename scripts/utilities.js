@@ -12,6 +12,10 @@ var pointsArray = function() {
 //    console.log(element + " has been logged.");
 //});
 
+function myCallback(index, element) {
+    console.log("The element at index " + index + " is " + element);
+}
+
 function forEach(array, callback) {
     // 1. Iterate over the array
     // 1a. Execute a callback for every item
@@ -24,10 +28,6 @@ function forEach(array, callback) {
         callback(i, array[i], array);
         // callback(index, element, array)
     }
-}
-
-function myCallback(index, element) {
-    console.log("The element at index " + index + " is " + element);
 }
 
 forEach(pointsArray(), myCallback);

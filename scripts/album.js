@@ -92,50 +92,40 @@ window.onload = function() {
 
     setCurrentAlbum(albumPicasso);
 
+    var toggleAlbums = function(album) {
+        document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
+            setCurrentAlbum(album);
+        });
+    };
+
+    var artistName = document.getElementsByClassName("album-view-artist")[0];
+
+    if (document.getElementsByClassName("album-view-artist")[0] = "Pablo Picasso") {
+        toggleAlbums(albumDylan);
+    }
+
+    // When this "if" statement is enabled nothing works
+
+    //if (document.getElementsByClassName("album-view-artist")[0] = "Bob Dylan") {
+    //    toggleAlbums(albumPicasso);
+    //}
+
+    //Also tried this switch but don't think that is the way to go or at least I'm not sure how to enable it with an event listener
+
+    //switch (artistName) {
+    //    case "Pablo Picasso":
+    //        toggleAlbums(albumDylan);
+    //        break;
+    //    case "Bob Dylan":
+    //        toggleAlbums(albumMarconi);
+    //        break;
+    //    case "Guglielmo Marconi":
+    //        toggleAlbums(albumPicasso);
+    //        break;
+    //    default:
+    //        console.log("WTF!");
+    //}
+
 };
 
-var toggleAlbums = function(album) {
-    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
-        setCurrentAlbum(album);
-    });
-};
-
-var artistName = document.getElementsByClassName("album-view-artist")[0];
-
-if (document.getElementsByClassName("album-view-artist")[0] = "Pablo Picasso") {
-    toggleAlbums(albumMarconi);
-};
-
-if (document.getElementsByClassName("album-view-artist")[0] = "Bob Dylan") {
-    toggleAlbums(albumPicasso);
-};
-
-//switch (artistName) {
-//    case "Pablo Picasso":
-//        toggleAlbums(albumDylan);
-//        break;
-//    case "Bob Dylan":
-//        toggleAlbums(albumMarconi);
-//        break;
-//    case "Guglielmo Marconi":
-//        toggleAlbums(albumPicasso);
-//        break;
-//    default:
-//        console.log("Fuck!");
-//}
-
-//if (document.getElementsByClassName("album-view-artist")[0] = "Bob Dylan") {
-//    toggleAlbums(albumPicasso);
-//};
-//
-//if (document.getElementsByClassName("album-view-artist")[0] = "Guglielmo Marconi") {
-//    toggleAlbums(albumDylan);
-//}
-//
-
-
-//    //document.getElementsByClassName('album-cover-art').addEventListener('click', function() {
-//    //    setCurrentAlbum(albumMarconi);
-//    //});
-//    //document.getElementsByClassName('album-cover-art').addEventListener('click', setCurrentAlbum(albumMarconi));
 

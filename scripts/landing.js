@@ -12,7 +12,7 @@ var animatePoints = function() {
     $.each($('.point'), revealPoint);
 };
 
-$(window).load (function() {
+$(window).load(function() {
 
     if ($(window).height() > 1200) {
         animatePoints();
@@ -21,7 +21,7 @@ $(window).load (function() {
     $(window).scroll(function(event) {
 
         //console.log("Current offset from the top is " + pointsArray[0].getBoundingClientRect().top + " pixels");
-        if ($(window).scrollTop() >= 700) {
+        if ($(window).scrollTop() >= 100) {
             animatePoints();
         }
 

@@ -92,21 +92,41 @@ window.onload = function() {
 
     setCurrentAlbum(albumPicasso);
 
-    var toggleAlbums = function(album) {
-        document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
-            setCurrentAlbum(album);
-        });
-    };
+    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
+        if (document.getElementsByClassName("album-view-artist")[0].textContent == "Pablo Picasso") {
+            setCurrentAlbum(albumDylan);
+        } else if (document.getElementsByClassName("album-view-artist")[0].textContent == "Bob Dylan") {
+            setCurrentAlbum(albumMarconi);
+        } else {
+            setCurrentAlbum(albumPicasso);
+        }
 
-    var artistName = document.getElementsByClassName("album-view-artist")[0];
+    });
 
-    if (document.getElementsByClassName("album-view-artist")[0] = "Pablo Picasso") {
-        toggleAlbums(albumDylan);
-    }
+    // Toggle Album Attempts
+
+    //var toggleAlbums = function(album) {
+    //    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
+    //        setCurrentAlbum(album);
+    //    });
+    //};
+
+    //var artistName = document.getElementsByClassName("album-view-artist")[0].textContent;
+
+    //if (document.getElementsByClassName("album-view-artist")[0].textContent == "Pablo Picasso") {
+    //    toggleAlbums(albumDylan);
+    //    console.log("Hello Picasso");
+    //}
+    //
+    //if (document.getElementsByClassName("album-view-artist")[0].textContent == "Bob Dylan") {
+    //    //toggleAlbums(albumMarconi);
+    //    console.log("Hey Dylan");
+    //}
+
 
     // When this "if" statement is enabled nothing works
 
-    //if (document.getElementsByClassName("album-view-artist")[0] = "Bob Dylan") {
+    //if (document.getElementsByClassName("album-view-artist")[0] == "Bob Dylan") {
     //    toggleAlbums(albumPicasso);
     //}
 

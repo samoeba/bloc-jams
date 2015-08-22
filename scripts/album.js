@@ -30,6 +30,25 @@ var albumMarconi = {
     ]
 };
 
+var albumDylan = {
+    name: "Highway 61 Revisited",
+    artist: "Bob Dylan",
+    label: 'Sony Music',
+    year: '1965',
+    albumArtUrl: 'assets/images/album_covers/dylan.jpg',
+    songs: [
+        { name: "Like a Rolling Stone", length: "5:32"},
+        { name: "Tombstone Blues", length: '6:53'},
+        { name: "It Takes A Lot To Laugh, It Takes A Train To Cry", length: "4:51"},
+        { name: "From A Buick 6", length: "3:45"},
+        { name: "Ballad Of A Thin Man", length: "6:06"},
+        { name: "Queen Jane Approximately", length: "5:31"},
+        { name: "Highway 61 Revisited", length: "3:30"},
+        { name: "Just Like Tom Thumb's Blues", length: "5:31"},
+        { name: "Desolation Row", length: "11:19"}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
 
     var template =
@@ -124,4 +143,17 @@ $(window).ready(function() {
 
     setCurrentAlbum(albumPicasso);
 
+    document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
+
+        if (document.getElementsByClassName("album-view-artist")[0].textContent == "Pablo Picasso") {
+            setCurrentAlbum(albumDylan);
+        } else if (document.getElementsByClassName("album-view-artist")[0].textContent == "Bob Dylan") {
+            setCurrentAlbum(albumMarconi);
+        } else {
+            setCurrentAlbum(albumPicasso);
+        }
+
+    });
+
 });
+

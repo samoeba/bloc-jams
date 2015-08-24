@@ -105,8 +105,8 @@ var trackIndex = function(album, song) {
     return album.songs.indexOf(song);
 };
 
-var getSongNumberCell = function() {
-
+var getSongNumberCell = function(number) {
+    $('.song-item-number[data-song-number="' + number + '"]');
 };
 
 var nextSong = function() {
@@ -122,7 +122,8 @@ var nextSong = function() {
         currentSongIndex = 0;
     }
 
-    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    //currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    currentlyPlayingSongNumber = (currentSongIndex + 1);
     updatePlayerBarSong();
 
     var lastSongNumber = getLastSongNumber(currentSongIndex);
@@ -147,7 +148,8 @@ var previousSong = function() {
         currentSongIndex = currentAlbum.songs.length - 1;
     }
 
-    setSong(currentSongIndex + 1);
+    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    currentlyPlayingSongNumber = currentSongIndex + 1;
     updatePlayerBarSong();
 
     var lastSongNumber = getLastSongNumber(currentSongIndex);

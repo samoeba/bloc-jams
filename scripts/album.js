@@ -122,7 +122,7 @@ var nextSong = function() {
         currentSongIndex = 0;
     }
 
-    //currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
+    currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
     currentlyPlayingSongNumber = (currentSongIndex + 1);
     updatePlayerBarSong();
 

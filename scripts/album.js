@@ -132,6 +132,26 @@ var getSongNumberCell = function(number) {
 //    }
 //};
 
+var togglePlayFromPlayerBar = function() {
+    if (currentlyPlayingSongNumber === null) {
+        return nextSong();
+    }
+
+    var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+
+    if (currentSoundFile.isPaused()) {
+        currentlyPlayingCell.html(pauseButtonTemplate);
+        $playPauseButton.html(playerBarPauseButton);
+        currentSoundFile.play();
+    } else if (currentSoundFile) {
+        currentlyPlayingCell.html(playButtonTemplate);
+        $playPauseButton.html(playerBarPlayButton);
+        currentSoundFile.pause();
+    }
+};
+
+
+
 var setSong = function(songNumber) {
 
     if (currentSoundFile) {
@@ -208,7 +228,7 @@ var previousSong = function() {
 
 };
 
-//var $playPauseButton = $('.left-controls .play-pause');
+var $playPauseButton = $('.left-controls .play-pause');
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 var playerBarPlayButton = '<span class="ion-play"></span>';
@@ -228,7 +248,7 @@ $(window).ready(function() {
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
-    //$playPauseButton.click(togglePlayFromPlayerBar);
+    $playPauseButton.click(togglePlayFromPlayerBar);
 
     document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function () {
 

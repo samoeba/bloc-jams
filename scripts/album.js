@@ -39,7 +39,7 @@ var createSongRow = function(songNumber, songName, songLength) {
         else if (currentlyPlayingSongNumber === songNumber) {
             if (currentSoundFile.isPaused()) {
                 $(this).html(pauseButtonTemplate);
-                $('.left-controls.play-pause').html(playerBarPauseButton);
+                $playPauseButton.html(playerBarPauseButton);
                 currentSoundFile.play();
 
                 updateSeekBarWhileSongPlays();
@@ -47,6 +47,8 @@ var createSongRow = function(songNumber, songName, songLength) {
                 $(this).html(playButtonTemplate);
                 $('.left-controls.play-pause').html(playerBarPlayButton);
                 currentSoundFile.pause();
+
+                $playPauseButton.html(playerBarPlayButton);
             }
         }
 
@@ -94,12 +96,12 @@ var setCurrentAlbum = function(album) {
     $albumImage.attr('src', album.albumArtUrl);
     $albumSongList.empty();
 
-    for (i = 0; i < album.songs.length; i++) {
-        var sound = new buzz.sound(album.songs[i].audioUrl, {formats: ['mp3'], preload: 'metadata'});
+    for (var i = 0; i < album.songs.length; i++) {
+        var sound = new buzz.sound(album.songs[i].audioUrl, {  formats: [ 'mp3' ],   preload: 'metadata'  });
         var mySound = function(i,sound){
-            var $newRow = createSongRow(i + 1, album.songs[i].name, album.songs[i].length);
+            var $newRow = createSongRow(i + 1, album.songs[i].name);
             $albumSongList.append($newRow);
-            return function() {
+            return function(){
                 var length = sound.getDuration();
                 currentSongDurations.push(length);
                 $newRow.find('.song-item-duration').text(filterTimeCode(length));
@@ -112,19 +114,17 @@ var setCurrentAlbum = function(album) {
 //------------------------------------------------SEEK BAR----------------------------------------------------------------------
 
 var setCurrentTimeInPlayerBar = function(currentTime) {
-    return $('.current-time').html(filterTimeCode(currentTime));
+    var curTime = $('.current-time').html(filterTimeCode(currentTime));
 };
 
-var setTotalTimeInPlayerBar = function(totalTime) {
-    var currentSongDuration = filterTimeCode(currentSoundFile.getDuration());
-
-    return $('.total-time').text(currentSongDuration);
+var setTotalTimeInPlayerBar = function() {
+    var totTime = $('.total-time').html(filterTimeCode(currentSongDuration));
 };
 
 var filterTimeCode = function(timeInSeconds) {
     var time = parseFloat(timeInSeconds);
     var wholeMinutes = Math.floor(time/60);
-    var wholeSeconds = Math.floor(time % 60);
+    var wholeSeconds = Math.floor(time - wholeMinutes * 60);
     if (wholeSeconds >= 10) {
         var formatTime = wholeMinutes + ":" + wholeSeconds;
     } else {

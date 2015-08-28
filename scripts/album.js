@@ -124,7 +124,7 @@ var setTotalTimeInPlayerBar = function() {
 var filterTimeCode = function(timeInSeconds) {
     var time = parseFloat(timeInSeconds);
     var wholeMinutes = Math.floor(time/60);
-    var wholeSeconds = Math.floor(time - wholeMinutes * 60);
+    var wholeSeconds = Math.floor(time % 60);
     if (wholeSeconds >= 10) {
         var formatTime = wholeMinutes + ":" + wholeSeconds;
     } else {
